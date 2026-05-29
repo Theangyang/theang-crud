@@ -1,5 +1,4 @@
 const CACHE_NAME = 'capecenio-notes-v1';
-<<<<<<< HEAD
 const ASSETS = [
     '/notes',
     '/manifest.json',
@@ -7,7 +6,6 @@ const ASSETS = [
     '/icons/icon-512.png',
 ];
 
-// Install: cache core assets
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
@@ -15,7 +13,6 @@ self.addEventListener('install', event => {
     self.skipWaiting();
 });
 
-// Activate: clean old caches
 self.addEventListener('activate', event => {
     event.waitUntil(
         caches.keys().then(keys =>
@@ -25,11 +22,8 @@ self.addEventListener('activate', event => {
     self.clients.claim();
 });
 
-// Fetch: network first, fall back to cache
 self.addEventListener('fetch', event => {
-    // Skip non-GET and browser-sync requests
     if (event.request.method !== 'GET') return;
-
     event.respondWith(
         fetch(event.request)
             .then(response => {
@@ -38,23 +32,5 @@ self.addEventListener('fetch', event => {
                 return response;
             })
             .catch(() => caches.match(event.request))
-=======
-const urlsToCache = [
-    '/',
-    '/notes',
-];
-
-self.addEventListener('install', event => {
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(urlsToCache))
-    );
-});
-
-self.addEventListener('fetch', event => {
-    event.respondWith(
-        caches.match(event.request)
-            .then(response => response || fetch(event.request))
->>>>>>> d51b3eb3179f90eed5bd5bb7b2b166b738f5273f
     );
 });
