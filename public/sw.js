@@ -1,4 +1,5 @@
 const CACHE_NAME = 'capecenio-notes-v1';
+<<<<<<< HEAD
 const ASSETS = [
     '/notes',
     '/manifest.json',
@@ -37,5 +38,23 @@ self.addEventListener('fetch', event => {
                 return response;
             })
             .catch(() => caches.match(event.request))
+=======
+const urlsToCache = [
+    '/',
+    '/notes',
+];
+
+self.addEventListener('install', event => {
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(cache => cache.addAll(urlsToCache))
+    );
+});
+
+self.addEventListener('fetch', event => {
+    event.respondWith(
+        caches.match(event.request)
+            .then(response => response || fetch(event.request))
+>>>>>>> d51b3eb3179f90eed5bd5bb7b2b166b738f5273f
     );
 });

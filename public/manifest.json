@@ -1,24 +1,41 @@
 {
     "name": "Capecenio Notes",
     "short_name": "Notes",
+<<<<<<< HEAD
     "description": "Create, view, edit, and delete your notes",
     "start_url": "/notes",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#e91e8c",
     "orientation": "portrait-primary",
+=======
+    "description": "A simple notes CRUD app",
+    "start_url": "/notes",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#D9007C",
+    "orientation": "portrait",
+>>>>>>> d51b3eb3179f90eed5bd5bb7b2b166b738f5273f
     "icons": [
         {
             "src": "/icons/icon-192.png",
             "sizes": "192x192",
+<<<<<<< HEAD
             "type": "image/png",
             "purpose": "any maskable"
+=======
+            "type": "image/png"
+>>>>>>> d51b3eb3179f90eed5bd5bb7b2b166b738f5273f
         },
         {
             "src": "/icons/icon-512.png",
             "sizes": "512x512",
+<<<<<<< HEAD
             "type": "image/png",
             "purpose": "any maskable"
+=======
+            "type": "image/png"
+>>>>>>> d51b3eb3179f90eed5bd5bb7b2b166b738f5273f
         }
     ]
 }
