@@ -23,5 +23,4 @@ ENV DB_CONNECTION=sqlite
 ENV DB_DATABASE=/app/database/database.sqlite
 
 EXPOSE 80
-
-CMD php artisan config:clear && php artisan migrate --force && supervisord
+CMD php artisan config:clear && php artisan view:clear && php artisan cache:clear && php artisan migrate --force && supervisord
